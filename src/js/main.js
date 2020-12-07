@@ -24,7 +24,16 @@ class Main extends Component {
                     </div>
                     <div className='profile-push'></div>
                 </div>
-                <div>추천</div>
+                <div className='recommend'>
+                    <div className='title'>추천 프로그램</div>
+                    <div className='recommend-card'>
+                        <div className='recommend-card-box'>
+                            <div className='card'></div>
+                            <div className='card'></div>
+                            <div className='card'></div>
+                        </div>
+                    </div>
+                </div>
                 <div>부우ㅣ</div>
                 <div>ㅔㅁ뉴</div>
             </div>

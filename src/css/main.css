@@ -25,3 +25,29 @@
     flex: .2;
     background-color: #abcccb;
 }
+
+.recommend {
+    height: 40vh;
+    padding-left: 5%;
+    padding-top: 5%;
+}
+.recommend-card {
+    width: 100%;
+    height: 90%;
+    overflow-x: scroll;
+}
+.recommend-card-box {
+    width: max-content;
+    height: 100%;
+    display: flex;
+    flex-flow: row wrap;
+}
+.card {
+    width: 40vw;
+    height: 100%;
+    background-color: #abc;
+    margin-left: 5vw;
+}
+.recommend-card-box > .card:first-child {
+    margin-left: 0;
+}
