@@ -34,8 +34,20 @@ class Main extends Component {
                         </div>
                     </div>
                 </div>
-                <div>부우ㅣ</div>
-                <div>ㅔㅁ뉴</div>
+                <div className='part'>
+                    <div className='title'>부위별 프로그램</div>
+                    <div className='part-card'>
+                        <div className='card'></div>
+                        <div className='card'></div>
+                        <div className='card'></div>
+                    </div>
+                </div>
+                <div className='menu'>
+                    <div>운동</div>
+                    <div>채팅</div>
+                    <div>랭크</div>
+                    <div>내 정보</div>
+                </div>
             </div>
         )
     }
