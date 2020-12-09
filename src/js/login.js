@@ -74,6 +74,9 @@ class login extends Component {
                     "Content-Type": "application/json; charset=utf-8"
                 },
                 body: JSON.stringify(user)
+            }).then(() => {
+                alert('회원 등록 되었습니다!');
+                this.state.setState({ onSignUp : false })
             })
         }
     }
