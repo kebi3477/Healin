@@ -1,14 +1,14 @@
 @font-face {
     font-family: 'SCore';
-    src: '../font/SCDream1.otf';
+    src: url('../font/SCDream3.otf');
 }
 .profile {
     width: 90%;
     padding: 5%;
     display: flex;
     flex-flow: row nowrap;
-    font-family: 'S-Core Dream 4';
-    /* font-family: 'SCore'; */
+    /* font-family: 'S-Core Dream 4'; */
+    font-family: 'SCore';
 }
 .profile-image {
     width: 3rem;
