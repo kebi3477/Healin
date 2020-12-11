@@ -19,6 +19,7 @@ class login extends Component {
             pwCheck : false,
             rePwCheck : false,
             emailCheck : false,
+            loading : false,
             onSignUp : false
         }
     }
@@ -28,8 +29,10 @@ class login extends Component {
             id : this.state.id,
             pw : this.state.pw
         }
+        this.imLoading();
         if(user.id === '' || user.pw === '') {
-            alert("아이디 혹은 비밀번호를 확인해주세요!")
+            alert("아이디 혹은 비밀번호를 확인해주세요!");
+            setTimeout(this.imLoading, 100);
         } else {
             fetch('/user/signIn', {
                 method: 'POST',
@@ -47,6 +50,7 @@ class login extends Component {
                 } else {
                     alert("아이디 혹은 비밀번호를 확인해주세요!")
                 }
+                this.imLoading();
             })
         }
     }
@@ -62,10 +66,13 @@ class login extends Component {
             rePwCheck : this.state.rePwCheck,
             emailCheck : this.state.emailCheck
         }
+        this.imLoading();
         if(user.id === '' || user.pw === '' || user.rePw === '' || user.email === '') {
             alert("정보를 전부 입력해주세요!");
+            setTimeout(this.imLoading, 100);
         } else if(!user.idCheck || !user.pwCheck || !user.rePwCheck || !user.emailCheck) {
             alert("잘못된 정보가 없는지 다시 한번 확인해보세요!");
+            setTimeout(this.imLoading, 100);
         } else {
             fetch('/user/signUp', {
                 method: 'POST',
@@ -75,8 +82,12 @@ class login extends Component {
                 },
                 body: JSON.stringify(user)
             })
+            .then(data => data.json)
+            .then(json => {
+                setTimeout(this.imLoading, 1000);
+                setTimeout(this.setState({ onSignUp : false }), 1000);
+            })
             alert('회원 등록 되었습니다!');
-            this.setState({ onSignUp : false })
         }
     }
 
@@ -223,6 +234,12 @@ class login extends Component {
         });
     }
 
+    imLoading = () => {
+        this.setState({ 
+            loading: this.state.loading ? false : true 
+        });
+    }
+
     componentDidMount() {
         for(let i = 1; i < 5; i++) {
             setTimeout(this.addIntroCnt, i*1000)
@@ -234,6 +251,11 @@ class login extends Component {
         const introClassArr = ["intro4 intro3 intro2 intro", "intro4 intro3 intro2", "intro4 intro3", "intro4", ""];
         return (
             <div className='user'>
+                { this.state.loading ? 
+                    <div className='loading'>
+                        <div className='circle'></div>
+                    </div>
+                : '' }
                 {this.state.onSignUp === false ? 
                     <div className={`login ${introClassArr[this.state.introCnt]}`}>
                         <div className='logo'>{appName}</div>

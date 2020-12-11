@@ -1,3 +1,11 @@
+@keyframes loading {
+    0% {   
+        transform: rotateZ(0); 
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
 body {
     width: 100vw;
     height: 100vh;
@@ -5,6 +13,29 @@ body {
 #root {
     width: 100%;
     height: 100%;
+}
+/* loading */
+.loading {
+    width: 100%;
+    height: 100%;
+    background-color: #0007;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.circle {
+    width: 2rem;
+    height: 2rem;
+    /* background-color: #fff; */
+    border: .5rem solid #fff;
+    border-bottom: .5rem solid transparent;
+    border-radius: 50%;
+    animation: loading 1s ease-in-out infinite;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    margin-left: -1rem;
+    margin-top: -1rem;
 }
 /* user */
 .user {
