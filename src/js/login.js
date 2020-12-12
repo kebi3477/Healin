@@ -82,12 +82,9 @@ class login extends Component {
                 },
                 body: JSON.stringify(user)
             })
-            .then(data => data.json)
-            .then(json => {
-                setTimeout(this.imLoading, 1000);
-                setTimeout(this.setState({ onSignUp : false }), 1000);
-            })
             alert('회원 등록 되었습니다!');
+            setTimeout(this.imLoading, 500);
+            setTimeout(this.setState({ onSignUp : false }), 1000);
         }
     }
 
