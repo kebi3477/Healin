@@ -3,14 +3,30 @@ import '../css/main.css';
 
 class Main extends Component {
 
-    componentDidMount() {
+    componentWillMount() {
         fetch('/home/check', {
             method: 'POST',
             dataType: "JSON",
             headers: {
                 "Content-Type": "application/json; charset=utf-8"
             }
-        });
+        })
+        .then(data => data.json())
+        .then(json => {
+            if(json.nonLogin) {
+                window.location = '../';
+            }
+        })
+    }
+
+    logout = () => {
+        fetch('/home/logout', {
+            method: 'POST',
+            dataType: "JSON",
+            headers: {
+                "Content-Type": "application/json; charset=utf-8"
+            }
+        })
     }
 
     render() {
@@ -46,7 +62,7 @@ class Main extends Component {
                     <div>운동</div>
                     <div>채팅</div>
                     <div>랭크</div>
-                    <div>내 정보</div>
+                    <div onClick={this.logout}>내 정보</div>
                 </div>
             </div>
         )

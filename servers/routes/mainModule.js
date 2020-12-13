@@ -12,13 +12,18 @@ router.post('/check', (req, res) => {
     const result = {
         nonLogin : ''
     }
-    if(req.session.uid === '') {
+    if(req.session.uid === undefined) {
         result.nonLogin = true;
     } else {
         result.nonLogin = false;
     }
-    console.log(req.session.uid)
     res.json(result);
+})
+
+router.post('/logout', (req, res) => {
+    req.session.destroy(() => {
+        req.session;
+    })
 })
 
 module.exports = router;
