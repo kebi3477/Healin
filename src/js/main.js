@@ -59,10 +59,10 @@ class Main extends Component {
                     </div>
                 </div>
                 <div className='menu'>
-                    <div>운동</div>
-                    <div>채팅</div>
-                    <div>랭크</div>
-                    <div onClick={this.logout}>내 정보</div>
+                    <div className='menu-health'></div>
+                    <div className='menu-chat'></div>
+                    <div className='menu-rank'></div>
+                    <div className='menu-profile' onClick={this.logout}></div>
                 </div>
             </div>
         )

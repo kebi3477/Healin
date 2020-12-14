@@ -83,7 +83,34 @@ body {
     bottom: 0;
     background-color: #ddd;
 }
+.menu > .menu-health {
+    background: url('../image/health.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+.menu > .menu-chat {
+    background: url('../image/chat.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+.menu > .menu-rank {
+    background: url('../image/rank.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+.menu > .menu-profile {
+    background: url('../image/profile.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
 .menu > div {
     flex: 1;
     text-align: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
 }
