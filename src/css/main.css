@@ -83,34 +83,36 @@ body {
     bottom: 0;
     background-color: #ddd;
 }
-.menu > .menu-health {
-    background: url('../image/health.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center center;
-}
-.menu > .menu-chat {
-    background: url('../image/chat.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center center;
-}
-.menu > .menu-rank {
-    background: url('../image/rank.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center center;
-}
-.menu > .menu-profile {
-    background: url('../image/profile.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center center;
-}
 .menu > div {
+    display: flex;
     flex: 1;
     text-align: center;
+    align-items: center;
+}
+.menu > .menu-active {
+    background-color: #333;
+}
+.menu > .menu-active > div {
+    filter: invert(100);
+    /* background-color: #ddd; */
+}
+.menu > div > div {
+    flex: 1;
+    height: 70%;
+    margin: 0 auto;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
+}
+.menu-health {
+    background: url('../image/health.svg');
+}
+.menu-chat {
+    background: url('../image/chat.svg');
+}
+.menu-rank {
+    background: url('../image/rank.svg');
+}
+.menu-profile {
+    background: url('../image/profile.svg');
 }

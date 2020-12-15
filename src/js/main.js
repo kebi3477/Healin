@@ -59,10 +59,10 @@ class Main extends Component {
                     </div>
                 </div>
                 <div className='menu'>
-                    <div className='menu-health'></div>
-                    <div className='menu-chat'></div>
-                    <div className='menu-rank'></div>
-                    <div className='menu-profile' onClick={this.logout}></div>
+                    <div className='menu-active'><div className='menu-health'></div></div>
+                    <div><div className='menu-chat'></div></div>
+                    <div><div className='menu-rank'></div></div>
+                    <div onClick={this.logout}><div className='menu-profile'></div></div>
                 </div>
             </div>
         )
