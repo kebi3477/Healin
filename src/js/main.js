@@ -19,6 +19,22 @@ class Main extends Component {
         })
     }
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            activeMenu : 0
+        }
+    }
+    
+
+    changeActiveMenu = e => {
+        console.log(e.target)
+        this.setState({
+            activeMenu : e.target.value
+        })
+        console.log(this.state)
+    }
+
     logout = () => {
         fetch('/home/logout', {
             method: 'POST',
@@ -27,6 +43,10 @@ class Main extends Component {
                 "Content-Type": "application/json; charset=utf-8"
             }
         })
+    }
+
+    componentDidMount() {
+
     }
 
     render() {
@@ -59,10 +79,14 @@ class Main extends Component {
                     </div>
                 </div>
                 <div className='menu'>
-                    <div className='menu-active'><div className='menu-health'></div></div>
-                    <div><div className='menu-chat'></div></div>
-                    <div><div className='menu-rank'></div></div>
-                    <div onClick={this.logout}><div className='menu-profile'></div></div>
+                    <div onClick={this.changeActiveMenu} value='0' className={this.state.activeMenu === 0 ? 'menu-active' : ''}>
+                        <div className='menu-health'></div></div>
+                    <div onClick={this.changeActiveMenu} value='1' className={this.state.activeMenu === 1 ? 'menu-active' : ''}>
+                        <div className='menu-chat'></div></div>
+                    <div onClick={this.changeActiveMenu} value='2' className={this.state.activeMenu === 2 ? 'menu-active' : ''}>
+                        <div className='menu-rank'></div></div>
+                    <div value='3' className={this.state.activeMenu === 3 ? 'menu-active' : ''} onClick={this.logout}>
+                        <div className='menu-profile'></div></div>
                 </div>
             </div>
         )

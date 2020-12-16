@@ -103,6 +103,7 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
+    pointer-events: none;
 }
 .menu-health {
     background: url('../image/health.svg');
