@@ -1,6 +1,31 @@
 import React, { Component } from 'react';
 import '../css/main.css';
 
+function Menu(props) {
+    const domClassName = `menu-${props.class}`
+
+    const changeLocation = () => {
+        let inner;
+        if(props.class === 'health') {
+            inner = 'main';
+        } else if(props.class === 'chat') {
+            inner = 'chatting';
+        } else if(props.class === 'rank') {
+            inner = 'rankking';
+        } else {
+            inner = 'mypage';
+        }
+        
+        window.location = `../${inner}`;
+    }
+
+    return (
+        <div onClick={changeLocation}>
+            <div className={domClassName}></div>
+        </div>
+    );
+}
+
 class Main extends Component {
 
     componentWillMount() {
@@ -14,6 +39,7 @@ class Main extends Component {
         .then(data => data.json())
         .then(json => {
             if(json.nonLogin) {
+                alert("로그인이 필요합니다! 로그인 창으로 돌아갑니다.")
                 window.location = '../';
             }
         })
@@ -79,18 +105,10 @@ class Main extends Component {
                     </div>
                 </div>
                 <div className='menu'>
-                    <div className={this.state.activeMenu === 0 ? 'menu-active' : ''}>
-                        <div className='menu-health'></div>
-                    </div>
-                    <div className={this.state.activeMenu === 1 ? 'menu-active' : ''}>
-                        <div className='menu-chat'></div>
-                    </div>
-                    <div className={this.state.activeMenu === 2 ? 'menu-active' : ''}>
-                        <div className='menu-rank'></div>
-                    </div>
-                    <div className={this.state.activeMenu === 3 ? 'menu-active' : ''} onClick={this.logout}>
-                        <div className='menu-profile'></div>
-                    </div>
+                    <Menu class='health' />
+                    <Menu class='chat' />
+                    <Menu class='rank' />
+                    <Menu class='profile' />
                 </div>
             </div>
         )
