@@ -1,30 +1,6 @@
 import React, { Component } from 'react';
+import Menu from './menu';
 import '../css/main.css';
-
-function Menu(props) {
-    const domClassName = `menu-${props.class}`
-
-    const changeLocation = () => {
-        let inner;
-        if(props.class === 'health') {
-            inner = 'main';
-        } else if(props.class === 'chat') {
-            inner = 'chatting';
-        } else if(props.class === 'rank') {
-            inner = 'rankking';
-        } else {
-            inner = 'mypage';
-        }
-        
-        window.location = `../${inner}`;
-    }
-
-    return (
-        <div onClick={changeLocation}>
-            <div className={domClassName}></div>
-        </div>
-    );
-}
 
 class Main extends Component {
 
