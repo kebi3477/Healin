@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import Menu from './menu';
 
-class Chat extends Component {
+class Profile extends Component {
 
-    
     render() {
         return(
             <div>
@@ -18,4 +17,4 @@ class Chat extends Component {
     }
 }
 
-export default Chat;
+export default Profile;
