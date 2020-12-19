@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 function Menu(props) {
     const domClassName = `menu-${props.class}`
@@ -15,7 +15,6 @@ function Menu(props) {
         } else {
             inner = 'mypage';
         }
-        
         window.location = `../${inner}`;
     }
     
@@ -25,7 +24,7 @@ function Menu(props) {
         activeFlag = true;
     } else if(window.location.pathname === '/rankking' && props.class === 'rank') {
         activeFlag = true;
-    } else if(window.location.pathname === '/mypage' && props.class === 'mypage') {
+    } else if(window.location.pathname === '/mypage' && props.class === 'profile') {
         activeFlag = true;
     }
 

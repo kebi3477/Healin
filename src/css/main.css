@@ -101,7 +101,7 @@ body {
 }
 .menu > div > div {
     flex: 1;
-    height: 70%;
+    height: 55%;
     margin: 0 auto;
     background-repeat: no-repeat;
     background-size: contain;
