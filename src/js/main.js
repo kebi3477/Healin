@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Menu from './menu';
+import Card from './card';
 import '../css/main.css';
 
 class Main extends Component {
 
-    componentWillMount() {
+    componentDidMount() {
         fetch('/home/check', {
             method: 'POST',
             dataType: "JSON",
@@ -47,10 +48,6 @@ class Main extends Component {
         })
     }
 
-    componentDidMount() {
-
-    }
-
     render() {
         return (
             <div>
@@ -66,9 +63,8 @@ class Main extends Component {
                     <div className='title'>추천 프로그램</div>
                     <div className='recommend-card'>
                         <div className='recommend-card-box'>
-                            <div className='card'></div>
-                            <div className='card'></div>
-                            <div className='card'></div>
+                            <Card></Card>
+                            <Card></Card>
                         </div>
                     </div>
                 </div>
