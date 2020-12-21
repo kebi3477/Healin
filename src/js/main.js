@@ -62,10 +62,7 @@ class Main extends Component {
                 <div className='recommend'>
                     <div className='title'>추천 프로그램</div>
                     <div className='recommend-card'>
-                        <div className='recommend-card-box'>
-                            <Card></Card>
-                            <Card></Card>
-                        </div>
+                        <Card></Card>
                     </div>
                 </div>
                 <div className='part'>
@@ -77,10 +74,10 @@ class Main extends Component {
                     </div>
                 </div>
                 <div className='menu'>
-                    <Menu class='health' />
-                    <Menu class='chat' />
-                    <Menu class='rank' />
-                    <Menu class='profile' />
+                    <Menu type='health' />
+                    <Menu type='chat' />
+                    <Menu type='rank' />
+                    <Menu type='profile' />
                 </div>
             </div>
         )

@@ -7,10 +7,10 @@ class Profile extends Component {
         return(
             <div>
                 <div className='menu'>
-                    <Menu class='health' />
-                    <Menu class='chat' />
-                    <Menu class='rank' />
-                    <Menu class='profile' />
+                    <Menu type='health' />
+                    <Menu type='chat' />
+                    <Menu type='rank' />
+                    <Menu type='profile' />
                 </div>
             </div>
         )

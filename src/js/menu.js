@@ -1,16 +1,16 @@
 import React from 'react';
 
 function Menu(props) {
-    const domClassName = `menu-${props.class}`
+    const domClassName = `menu-${props.type}`
     let activeFlag = false;
     
     const changeLocation = () => {
         let inner;
-        if(props.class === 'health') {
+        if(props.type === 'health') {
             inner = 'main';
-        } else if(props.class === 'chat') {
+        } else if(props.type === 'chat') {
             inner = 'chatting';
-        } else if(props.class === 'rank') {
+        } else if(props.type === 'rank') {
             inner = 'rankking';
         } else {
             inner = 'mypage';
@@ -18,13 +18,13 @@ function Menu(props) {
         window.location = `../${inner}`;
     }
     
-    if(window.location.pathname === '/main' && props.class === 'health') {
+    if(window.location.pathname === '/main' && props.type === 'health') {
         activeFlag = true;
-    } else if(window.location.pathname === '/chatting' && props.class === 'chat') {
+    } else if(window.location.pathname === '/chatting' && props.type === 'chat') {
         activeFlag = true;
-    } else if(window.location.pathname === '/rankking' && props.class === 'rank') {
+    } else if(window.location.pathname === '/rankking' && props.type === 'rank') {
         activeFlag = true;
-    } else if(window.location.pathname === '/mypage' && props.class === 'profile') {
+    } else if(window.location.pathname === '/mypage' && props.type === 'profile') {
         activeFlag = true;
     }
 
