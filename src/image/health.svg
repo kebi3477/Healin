@@ -3,32 +3,34 @@
 <style>
     @keyframes health {
         0% {
-            opacity: 0;
+            transform: rotateZ(0)
+        }
+        30% {
+            transform: rotateZ(-360deg)
         }
         100% {
-            opacity: 1;
+            transform: rotateZ(-360deg)
         }
     }
     path {
         position: relative;
-        animation: health 1s;
+        animation: health 4.5s infinite;
         animation-fill-mode: forwards;
-        opacity: 0;
     }
     .health1 {
         animation-delay: 0s;
     }
     .health2 {
-        animation-delay: .5s;
-    }
-    .health3 {
         animation-delay: 1s;
     }
-    .health4 {
+    .health3 {
         animation-delay: 1.5s;
     }
-    .health5 {
+    .health4 {
         animation-delay: 2s;
+    }
+    .health5 {
+        animation-delay: 2.5s;
     }
 </style></defs><title>자산 4</title>
 <g id="레이어_2" data-name="레이어 2">

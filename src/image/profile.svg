@@ -1,1 +1,54 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.88 5.9"><defs><style>.cls-1{fill:#3c3c3c;}</style></defs><title>자산 3</title><g id="레이어_2" data-name="레이어 2"><g id="레이어_1-2" data-name="레이어 1"><path class="cls-1" d="M2.94,3.15A1.58,1.58,0,1,1,4.52,1.58,1.57,1.57,0,0,1,2.94,3.15m0-2.77a1.2,1.2,0,1,0,1.2,1.2A1.2,1.2,0,0,0,2.94.38"/><path class="cls-1" d="M5.69,5.9H.19A.18.18,0,0,1,0,5.71a2.94,2.94,0,0,1,5.88,0,.19.19,0,0,1-.19.19M.39,5.52h5.1a2.56,2.56,0,0,0-5.1,0"/></g></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.88 5.9">
+<defs>
+<style>
+    @keyframes rock-down {
+        0% {
+            transform: matrix(1, 0, 0, 1, 0, 0);
+        }
+        10% {
+            transform: matrix(1, 0, 0, 1, 2, .2);
+        }
+        20% {
+            transform: matrix(1, 0, 0, 1, 3, 1);
+        }
+        30% {
+            transform: matrix(1, 0, 0, 1, 4, 3);
+        }
+        40% {
+            transform: matrix(1, 0, 0, 1, 4, 5.5);
+        }
+        50% {
+            transform: matrix(1, 0, 0, 1, 0, 5.5);
+        }
+        60% {
+            transform: matrix(1, 0, 0, 1, -4, 5.5);
+        }
+        70% {
+            transform: matrix(1, 0, 0, 1, -4, 3);
+        }
+        80% {
+            transform: matrix(1, 0, 0, 1, -3, 1);
+        }
+        90% {
+            transform: matrix(1, 0, 0, 1, -2, .2);
+        }
+        100% {
+            transform: matrix(1, 0, 0, 1, 0, 0);
+        }
+    }
+    .cls-1 {
+        fill:#3c3c3c;
+    }
+    .head {
+        animation: rock-down 2s infinite;
+    }
+</style>
+</defs>
+<title>자산 3</title>
+<g id="레이어_2" data-name="레이어 2">
+<g id="레이어_1-2" data-name="레이어 1">
+<path class="cls-1 head" d="M2.94,3.15A1.58,1.58,0,1,1,4.52,1.58,1.57,1.57,0,0,1,2.94,3.15m0-2.77a1.2,1.2,0,1,0,1.2,1.2A1.2,1.2,0,0,0,2.94.38"/>
+<path class="cls-1" d="M5.69,5.9H.19A.18.18,0,0,1,0,5.71a2.94,2.94,0,0,1,5.88,0,.19.19,0,0,1-.19.19M.39,5.52h5.1a2.56,2.56,0,0,0-5.1,0"/>
+</g>
+</g>
+</svg>
