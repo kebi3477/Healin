@@ -52,15 +52,6 @@ body {
     display: flex;
     flex-flow: row wrap;
 }
-.card {
-    width: 40vw;
-    height: 100%;
-    background-color: #ddd;
-    margin-left: 5vw;
-}
-.card:first-child {
-    margin-left: 0;
-}
 
 .part {
     height: 30vh;

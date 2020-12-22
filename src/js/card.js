@@ -1,8 +1,21 @@
 import React, { Component } from 'react';
+import '../css/card.css';
 
 function CardModule(props) {
     return (
-        <div className="card">{props.name}</div>
+        <div className="card">
+            <div className="title">
+                <div className="title-name">{props.name}</div>
+                <div className="title-rank"></div>
+            </div>
+            <div className="image"></div>
+            <div>
+                <div></div>
+                <div></div>
+            </div>
+            <div></div>
+            <div></div>
+        </div>
     )
 }
 
@@ -11,7 +24,7 @@ class Card extends Component {
     render() {
         const testData = [{
             "id" : 1,
-            "name" : "A1"
+            "name" : "PULL-UP"
         }, {
             "id" : 2,
             "name" : "A2"

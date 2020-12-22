@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Menu from './menu';
+import MenuBar from './menuBar';
 import Card from './card';
 import '../css/main.css';
 
@@ -73,12 +73,7 @@ class Main extends Component {
                         <div className='card'></div>
                     </div>
                 </div>
-                <div className='menu'>
-                    <Menu type='health' />
-                    <Menu type='chat' />
-                    <Menu type='rank' />
-                    <Menu type='profile' />
-                </div>
+                <MenuBar></MenuBar>
             </div>
         )
     }
