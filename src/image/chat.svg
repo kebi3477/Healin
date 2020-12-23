@@ -22,11 +22,11 @@
         fill:#393e46;
     }
     .left {
-        animation: leftCloud 1s;
+        animation: leftCloud 1s infinite;
         transform-origin: center bottom;
     }
     .right {
-        animation: leftCloud 1s;
+        animation: leftCloud 1s infinite;
         transform-origin: center top;
     }
 </style>

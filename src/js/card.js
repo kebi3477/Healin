@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import '../css/card.css';
 
 function CardModule(props) {
+
+    const showCardDetail = props => {
+        console.log(props)
+    }
+
     return (
-        <div className="card">
+        <div className="card" onClick={() => showCardDetail(props.name)}>
             <div className="title">
                 <div className="title-name">{props.name}</div>
                 <div className="title-rank"></div>

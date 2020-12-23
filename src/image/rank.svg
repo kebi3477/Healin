@@ -12,7 +12,7 @@
         100% { transform: rotateZ(0) scale(0.8); }
     }
     .tropy {
-        animation: shake 1s;
+        animation: shake 1s infinite;
         transform-origin: center;
         transform: scale(0.8);
     }
