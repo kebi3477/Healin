@@ -28,14 +28,11 @@ class Main extends Component {
             activeMenu : 0
         }
     }
-    
 
     changeActiveMenu = e => {
-        console.log(e.target)
         this.setState({
             activeMenu : e.target
         })
-        console.log(this.state)
     }
 
     logout = () => {
@@ -61,9 +58,7 @@ class Main extends Component {
                 </div>
                 <div className='recommend'>
                     <div className='title'>추천 프로그램</div>
-                    <div className='recommend-card'>
-                        <Card></Card>
-                    </div>
+                    <Card></Card>
                 </div>
                 <div className='part'>
                     <div className='title'>부위별 프로그램</div>
