@@ -40,9 +40,8 @@ class Card extends Component {
 
         const detailCard = (
             <div className="card-detail">
-                <div onClick={() => showDetailCard(this.state.detailCardType)}>
-                    {this.state.detailCardType}
-                </div>
+                <div className="card"></div>
+                <div className="card-close" onClick={() => showDetailCard(this.state.detailCardType)}>닫기</div>
             </div>
         )
 

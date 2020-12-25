@@ -26,3 +26,11 @@
     background-color: #3335;
     z-index: 10;
 }
+.card-close {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #fff;
+    padding: 3%;
+    border-radius: .25rem;
+}
