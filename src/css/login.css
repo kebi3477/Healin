@@ -69,10 +69,10 @@ body {
 }
 .logo {
     margin: 0 auto;
-    padding-top: 50%;
+    padding-top: 30vh;
     position: relative;
     text-align: center;
-    font-size: 6vh;
+    font-size: 10vw;
     font-weight: bold;
     color: #333;
     /* margin-top: -10vh; */
@@ -121,8 +121,11 @@ body {
 .intro4 > *, .intro4 {
     transition: .5s;
 }
-/* @media (min-width: 400px) {
-    body {
-        width: 400px;
+@media (max-height: 400px) {
+    .logo {
+        padding-top: 10vh;
     }
-} */
+    .signup {
+        padding-top: 5vh;
+    }
+}
