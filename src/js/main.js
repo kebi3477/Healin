@@ -35,6 +35,7 @@ class Main extends Component {
         })
     }
 
+    
     logout = () => {
         fetch('/home/logout', {
             method: 'POST',
@@ -44,11 +45,16 @@ class Main extends Component {
             }
         })
     }
-
+    
     render() {
+        
+        const changeUrl = path => {
+            window.location.href = `../${path}`;
+        }
+        
         return (
             <div>
-                <div className='profile'>
+                <div className='profile' onClick={() => changeUrl('mypage')}>
                     <div className='profile-image'></div>
                     <div className='profile-welcome'>
                         <div>안녕하세요</div>
