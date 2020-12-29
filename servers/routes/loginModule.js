@@ -3,6 +3,8 @@ const router = express.Router();
 const mysql = require('mysql');
 const dbconfig = require('./database.js');
 const connection = mysql.createConnection(dbconfig);
+const crypto = require('crypto');
+const secret = 'MyScreasdasd!!32131acdas';
 
 connection.connect(err => {
     if(err) console.log(err)
@@ -10,7 +12,9 @@ connection.connect(err => {
 
 router.post('/signIn', (req, res) => {
     const user = req.body;
-    const sql = `select * from users where id = '${user.id}' and password = '${user.pw}'`;
+    const hashed = crypto.createHmac('sha256', secret).update(user.pw).digest('hex');
+    const sql = `select * from users where id = '${user.id}' and password = '${hashed}'`;
+    console.log(hashed);
     let status = {
         "result": ""
     };
@@ -31,7 +35,9 @@ router.post('/signIn', (req, res) => {
 
 router.post('/signUp', (req, res) => {
     const user = req.body;
-    const sql = `insert into users values('${user.id}','${user.pw}','${user.email}')`;
+    const hashed = crypto.createHmac('sha256', secret).update(user.pw).digest('hex');
+    console.log('hashed :', hashed);
+    const sql = `insert into users values('${user.id}','${hashed}','${user.email}')`;
     connection.query(sql, (err, rows) => {
         if(err) throw err;
         else console.log(rows.insertId)
