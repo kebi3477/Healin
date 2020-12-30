@@ -10,7 +10,7 @@ connection.connect(err => {
     if(err) console.log(err)
 });
 
-router.post('/signIn', (req, res) => {
+router.post('/signIn', (req, res) => { //로그인
     const user = req.body;
     const hashed = crypto.createHmac('sha256', secret).update(user.pw).digest('hex');
     const sql = `select * from users where id = '${user.id}' and password = '${hashed}'`;
@@ -33,7 +33,7 @@ router.post('/signIn', (req, res) => {
     })
 })
 
-router.post('/signUp', (req, res) => {
+router.post('/signUp', (req, res) => { //회원가입
     const user = req.body;
     const hashed = crypto.createHmac('sha256', secret).update(user.pw).digest('hex');
     console.log('hashed :', hashed);
@@ -44,7 +44,7 @@ router.post('/signUp', (req, res) => {
     })
 })
 
-router.post('/idCheck', (req, res) => {
+router.post('/idCheck', (req, res) => { //아이디 중복 확인
     console.log(req.session.uid)
     const user = req.body;
     const sql = `select * from users where id = '${user.id}'`;
@@ -55,7 +55,7 @@ router.post('/idCheck', (req, res) => {
     })
 })
 
-router.post('/emailCheck', (req, res) => {
+router.post('/emailCheck', (req, res) => { //이메일 중복 확인
     const user = req.body;
     const sql = `select * from users where email = '${user.email}'`;
     connection.query(sql, (err, rows) => {

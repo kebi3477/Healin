@@ -8,7 +8,7 @@ connection.connect(err => {
     if(err) console.log(err)
 });
 
-router.post('/check', (req, res) => {
+router.post('/check', (req, res) => { //처음 메인 페이지 접속 시 세션 확인 유무
     const result = {
         nonLogin : ''
     }
@@ -20,7 +20,7 @@ router.post('/check', (req, res) => {
     res.json(result);
 })
 
-router.post('/logout', (req, res) => {
+router.post('/logout', (req, res) => { //로그아웃
     req.session.destroy(() => {
         req.session;
     })

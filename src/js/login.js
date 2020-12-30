@@ -199,19 +199,19 @@ class login extends Component {
         }
     }
 
-    handleChange = e => {
+    handleChange = e => { //input에 data가 변경될 때마다 this.state에 값을 넣어줌
         this.setState({
             [e.target.name] : e.target.value
         })
     }
 
-    handleKeyPress = e => {
+    handleKeyPress = e => { // 로그인 시, password에서 enter키를 눌렀을 경우 로그인 이벤트
         if(e.key === 'Enter') {
             this.signIn();
         }
     }
 
-    handleChangeSignUp = e => {
+    handleChangeSignUp = e => { //회원가입 및 로그인 키를 눌렀을 경우 초기화
         this.setState({
             idLabel : '',
             pwLabel : '',
@@ -225,19 +225,19 @@ class login extends Component {
         })
     }
 
-    addIntroCnt = () => {
+    addIntroCnt = () => { //처음 인트로 이벤트 시 값
         this.setState({
             introCnt: this.state.introCnt+1
         });
     }
 
-    imLoading = () => {
+    imLoading = () => { //로딩일 경우 true, ! false
         this.setState({ 
             loading: this.state.loading ? false : true 
         });
     }
 
-    componentDidMount() {
+    componentDidMount() { //실행주기시, dom을 불러온 후 실행
         for(let i = 1; i < 5; i++) {
             setTimeout(this.addIntroCnt, i*1000)
         }

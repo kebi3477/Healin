@@ -36,7 +36,7 @@ class Main extends Component {
     }
 
     
-    logout = () => {
+    logout = () => { //로그아웃
         fetch('/home/logout', {
             method: 'POST',
             dataType: "JSON",
@@ -47,8 +47,7 @@ class Main extends Component {
     }
     
     render() {
-        
-        const changeUrl = path => {
+        const changeUrl = path => { //주소 변경 함수
             window.location.href = `../${path}`;
         }
         
