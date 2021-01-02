@@ -51,7 +51,10 @@ class Card extends Component {
                         <div className="card-detail_korname">턱걸이</div>
                     </div>
                 </div>
-                <div className="card-close" onClick={() => showDetailCard(this.state.detailCardType)}>닫기</div>
+                <div className="card-button">
+                    <div className="card-close" onClick={() => showDetailCard(this.state.detailCardType)}>X Close</div>
+                    <div className="card-next">Next ></div>
+                </div>
             </div>
         )
 

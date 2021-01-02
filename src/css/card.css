@@ -32,7 +32,7 @@
     z-index: 10;
 }
 .card-detail {
-    width: 74%;
+    width: 68%;
     height: 75%;
     margin: 0 auto;
     margin-top: 4vh;
@@ -96,12 +96,25 @@
     font-size: 1.7rem;
 }
 
-.card-close {
+.card-button {
     width: 80%;
+    display: flex;
+    flex-flow: row nowrap;
     margin: 0 auto;
-    text-align: center;
+    margin-top: 2vh;
+}
+.card-next {
+    flex: 1;
+    text-align: right;
     background-color: #fff;
     padding: 3%;
     border-radius: .25rem;
-    margin-top: 2vh;
+    margin-left: 30%;
+}
+.card-close {
+    flex: 1;
+    text-align: left;
+    background-color: #fff;
+    padding: 3%;
+    border-radius: .25rem;
 }
