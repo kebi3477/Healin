@@ -18,6 +18,10 @@ class Main extends Component {
             if(json.nonLogin) {
                 alert("로그인이 필요합니다! 로그인 창으로 돌아갑니다.")
                 window.location = '../';
+            } else {
+                this.setState({
+                    nickName : json.nickName
+                })
             }
         })
     }
@@ -25,7 +29,8 @@ class Main extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            activeMenu : 0
+            activeMenu : 0,
+            nickName : ""
         }
     }
 
@@ -57,7 +62,7 @@ class Main extends Component {
                     <div className='profile-image'></div>
                     <div className='profile-welcome'>
                         <div>안녕하세요</div>
-                        <div className='profile-nickname'>짱구님</div>
+                        <div className='profile-nickname'>{this.state.nickName}님</div>
                     </div>
                     <div className='profile-push'></div>
                 </div>

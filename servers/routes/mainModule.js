@@ -10,7 +10,8 @@ connection.connect(err => {
 
 router.post('/check', (req, res) => { //처음 메인 페이지 접속 시 세션 확인 유무
     const result = {
-        nonLogin : ''
+        nonLogin : '',
+        nickName : req.session.uid
     }
     if(req.session.uid === undefined) {
         result.nonLogin = true;
