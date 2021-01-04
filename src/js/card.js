@@ -53,7 +53,7 @@ class Card extends Component {
                 </div>
                 <div className="card-button">
                     <div className="card-close" onClick={() => showDetailCard(this.state.detailCardType)}>X Close</div>
-                    <div className="card-next">Next ></div>
+                    <div className="card-next">Next</div>
                 </div>
             </div>
         )
@@ -64,6 +64,9 @@ class Card extends Component {
         }, {
             "id" : 2,
             "name" : "A2"
+        }, {
+            "id" : 3,
+            "name" : "Push-Up"
         }]
 
         const mapToComponent = data => {

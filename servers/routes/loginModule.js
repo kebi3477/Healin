@@ -5,6 +5,7 @@ const dbconfig = require('./database.js');
 const connection = mysql.createConnection(dbconfig);
 const crypto = require('crypto');
 const secret = 'MyScreasdasd!!32131acdas';
+const nodemailer = require('nodemailer');
 
 connection.connect(err => {
     if(err) console.log(err)
@@ -59,10 +60,46 @@ router.post('/emailCheck', (req, res) => { //이메일 중복 확인
     const user = req.body;
     const sql = `select * from users where email = '${user.email}'`;
     connection.query(sql, (err, rows) => {
-        if(err) throw err;
-        console.log(rows);
-        const result = { length : rows.length }
-        res.json(result);
+        if(err) {
+            throw err;
+        } else {
+            const result = { length : rows.length }
+            console.log(rows);
+            res.json(result);
+        }
+    })
+})
+
+router.post('/emailCertified', (req, res) => {
+    const authMail = 'kebi6270@gmail.com';
+    console.log('authMail', authMail)
+    const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        host: 'smtp.gmail.com',
+        prot: 587,
+        secure: false,
+        auth: {
+            user: authMail,
+            pass: 'wnddkd1204'
+        },
+    })
+    console.log('transporter', transporter)
+    const mailOptions = {
+        from: authMail,
+        to: 'kebi3477@naver.com',
+        subject: 'Sending Email using Node.js',
+        text: '<b>Hi im minsu</b>'
+    }
+    console.log('mailOptions', mailOptions)
+    transporter.sendMail(mailOptions, (err, info) => {
+        if(err) {
+            console.log(err)
+        } else {
+            const result = {
+                info : info.response
+            }
+            res.json(result);
+        }
     })
 })
 

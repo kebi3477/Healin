@@ -82,7 +82,7 @@ body {
     width: 80%;
     margin-top: 4vw;
 }
-.input > input {
+.input > input, .input > .email_box > input {
     width: 94%;
     font-size: 4vw;
     padding: 3%;
@@ -107,6 +107,22 @@ body {
 }
 .green {
     color: #0bb10b;
+}
+.email_box {
+    position: relative;
+}
+.email_certified {
+    width: 14%;
+    position: absolute;
+    top: 0;
+    right: -1px;
+    transform: translateY(46%);
+    padding: 3%;
+    border-radius: .6rem;
+    background-color: #333;
+    text-align: center;
+    box-shadow: 1px 1px 1px 1px #ccc;
+    color: #fff;
 }
 /* Intro */
 .intro {

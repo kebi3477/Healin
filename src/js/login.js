@@ -199,6 +199,30 @@ class login extends Component {
         }
     }
 
+    emailCertified = () => {    //이메일 인증
+        if(this.state.emailCheck) {
+            const user = {
+                email: this.state.email
+            }
+            fetch('/user/emailCertified', {
+                method: 'POST',
+                dataType: "JSON",
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8"
+                },
+                body: JSON.stringify(user)
+            })
+            .then(data => data.json())
+            .then(json => {
+                console.log(json.info);
+            })
+        } else {
+            this.setState({
+                emailLabel : '이메일 형식을 지켜주셔야 인증번호를 보내드립니다.'
+            })
+        }
+    }
+
     handleChange = e => { //input에 data가 변경될 때마다 this.state에 값을 넣어줌
         this.setState({
             [e.target.name] : e.target.value
@@ -271,7 +295,10 @@ class login extends Component {
                             <label className={`input_label ${this.state.pwCheck ? 'green' : 'red'}`}>{this.state.pwLabel}</label>
                             <input type='password' placeholder='비밀번호 재확인' onChange={this.handleChange} name='rePw' onBlur={this.pwSameCheck}></input>
                             <label className={`input_label ${this.state.rePwCheck ? 'green' : 'red'}`}>{this.state.rePwLabel}</label>
-                            <input type='text' placeholder='이메일' onChange={this.handleChange} onBlur={this.emailCheck} name='email'></input>
+                            <div className='email_box'>
+                                <input type='text' placeholder='이메일' onChange={this.handleChange} onBlur={this.emailCheck} name='email'></input>
+                                <div className='email_certified' onClick={this.emailCertified}>전송</div>
+                            </div>
                             <label className={`input_label ${this.state.emailCheck ? 'green' : 'red'}`}>{this.state.emailLabel}</label>
                         </div>
                         <div className='user_btn' onClick={this.signUp}>회원가입</div>
