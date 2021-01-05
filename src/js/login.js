@@ -21,8 +21,10 @@ class login extends Component {
             emailCheck : false,
             loading : false,
             onSignUp : false,
-            certifing : false
-        }
+            certifing : false,
+            certifiNumber : ''
+        } 
+        //todo : made email certifiedNUmber
     }
 
     signIn = () => {    //로그인
@@ -205,9 +207,6 @@ class login extends Component {
             const user = {
                 email: this.state.email
             }
-            this.setState({
-                certifing : true
-            })
             
             fetch('/user/emailCertified', {
                 method: 'POST',
@@ -219,6 +218,10 @@ class login extends Component {
             })
             .then(data => data.json())
             .then(json => {
+                this.setState({
+                    emailLabel : '이메일을 확인해주세요!',
+                    certifing : true
+                })
                 console.log(json.info);
             })
         } else {
@@ -226,6 +229,27 @@ class login extends Component {
                 emailLabel : '이메일 형식을 지켜주셔야 인증번호를 보내드립니다.'
             })
         }
+    }
+
+    emailCertifiedCheck = () => {
+        const user = { number : this.state.certifiNumber }
+        fetch('/user/emailCertifiedCheck', {
+            method: 'POST',
+            dataType: "JSON",
+            headers: {
+                "Content-Type": "application/json; charset=utf-8"
+            },
+            body: JSON.stringify(user)
+        })
+        .then(data => data.json())
+        .then(json => {
+            if(json.check) {
+                alert("인증 성공");
+            } else {
+                alert("인증 실패")
+            }
+        })
+        
     }
 
     handleChange = e => { //input에 data가 변경될 때마다 this.state에 값을 넣어줌
@@ -250,7 +274,8 @@ class login extends Component {
             pwCheck : false,
             rePwCheck : false,
             emailCheck : false,
-            onSignUp : this.state.onSignUp ? false : true
+            onSignUp : this.state.onSignUp ? false : true,
+            certifing : false
         })
     }
 
@@ -306,8 +331,8 @@ class login extends Component {
                             </div>
                             <label className={`input_label ${this.state.emailCheck ? 'green' : 'red'}`}>{this.state.emailLabel}</label>
                             { this.state.certifing ? <div className="email_certified_box">
-                                <input type="text" placeholder='인증번호' className='email_certified_number'></input>
-                                <div className="email_certified_btn">확인</div>
+                                <input type="text" placeholder='인증번호' className='email_certified_number' onChange={this.handleChange} name='certifiNumber'></input>
+                                <div className="email_certified_btn" onClick={this.emailCertifiedCheck}>확인</div>
                                 <label>3:00</label>
                             </div> : "" }
                         </div>
