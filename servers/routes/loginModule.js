@@ -6,6 +6,7 @@ const connection = mysql.createConnection(dbconfig);
 const crypto = require('crypto');
 const secret = 'MyScreasdasd!!32131acdas';
 const nodemailer = require('nodemailer');
+const gmail = require('./gmail.js');
 
 connection.connect(err => {
     if(err) console.log(err)
@@ -71,8 +72,8 @@ router.post('/emailCheck', (req, res) => { //이메일 중복 확인
 })
 
 router.post('/emailCertified', (req, res) => {
-    const authMail = 'kebi6270@gmail.com';
-    console.log('authMail', authMail)
+    const authMail = gmail.authMail;
+    const toMail = req.body.email;
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         host: 'smtp.gmail.com',
@@ -80,17 +81,23 @@ router.post('/emailCertified', (req, res) => {
         secure: false,
         auth: {
             user: authMail,
-            pass: 'wnddkd1204'
+            pass: gmail.password
         },
     })
-    console.log('transporter', transporter)
     const mailOptions = {
-        from: authMail,
-        to: 'kebi3477@naver.com',
-        subject: 'Sending Email using Node.js',
-        text: '<b>Hi im minsu</b>'
+        from: `HEALIN <${authMail}>`,
+        to: toMail,
+        subject: '[HEALIN] 본인 인증 안내',
+        html: `<div style="width: 100%; height: 98vh; background-color: #ddd; padding-top: 2vh;">
+            <div style="max-width: 600px; background-color: #fff; margin: 0 auto; padding-bottom: 10px;">
+                <div style="width: max-content;margin: 0 auto;text-align: center;color: #333;font-size: 1.7rem;font-weight: bold;padding: 3%;border-bottom: 1px solid #333;">HEALIN</div>
+                <div style="width: 96%;text-align: center;font-weight: bold;color: #333;font-size: 1.2rem;border-top: .25px solid #dddddd;padding: 2%;">안녕하세요!</div>
+                <p style="width: 94%;text-align: center;border-bottom: .25px solid #dddddd;padding: 3%;padding-top: 0;margin: 0;">Healin을 이용해주셔서 감사합니다. 아래에 있는 이메일 코드를 입력해주세요!</p>
+                <h2 style="width: max-content;padding: 1%;text-align: center;border: 1px solid black;margin: 3% auto;">123464</h2>
+            </div>
+        </div>`
     }
-    console.log('mailOptions', mailOptions)
+
     transporter.sendMail(mailOptions, (err, info) => {
         if(err) {
             console.log(err)

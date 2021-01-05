@@ -20,7 +20,8 @@ class login extends Component {
             rePwCheck : false,
             emailCheck : false,
             loading : false,
-            onSignUp : false
+            onSignUp : false,
+            certifing : false
         }
     }
 
@@ -204,6 +205,10 @@ class login extends Component {
             const user = {
                 email: this.state.email
             }
+            this.setState({
+                certifing : true
+            })
+            
             fetch('/user/emailCertified', {
                 method: 'POST',
                 dataType: "JSON",
@@ -277,7 +282,7 @@ class login extends Component {
                         <div className='circle'></div>
                     </div>
                 : '' }
-                {this.state.onSignUp === false ? 
+                { !this.state.onSignUp ? 
                     <div className={`login ${introClassArr[this.state.introCnt]}`}>
                         <div className='logo'>{appName}</div>
                         <div className='input'>
@@ -300,6 +305,11 @@ class login extends Component {
                                 <div className='email_certified' onClick={this.emailCertified}>전송</div>
                             </div>
                             <label className={`input_label ${this.state.emailCheck ? 'green' : 'red'}`}>{this.state.emailLabel}</label>
+                            { this.state.certifing ? <div className="email_certified_box">
+                                <input type="text" placeholder='인증번호' className='email_certified_number'></input>
+                                <div className="email_certified_btn">확인</div>
+                                <label>3:00</label>
+                            </div> : "" }
                         </div>
                         <div className='user_btn' onClick={this.signUp}>회원가입</div>
                         <div className='user_signup' onClick={this.handleChangeSignUp}>계정이 이미 있습니다.</div>

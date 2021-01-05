@@ -82,7 +82,7 @@ body {
     width: 80%;
     margin-top: 4vw;
 }
-.input > input, .input > .email_box > input {
+.input > input, .input > div > input {
     width: 94%;
     font-size: 4vw;
     padding: 3%;
@@ -123,7 +123,33 @@ body {
     text-align: center;
     box-shadow: 1px 1px 1px 1px #ccc;
     color: #fff;
+    font-size: 4vw;
 }
+.email_certified_box {
+    position: relative;
+}
+.input > .email_certified_box > input {
+    width: 73%;
+}
+.email_certified_btn {
+    width: 14%;
+    position: absolute;
+    top: 0;
+    right: 20%;
+    transform: translateY(46%);
+    padding: 3%;
+    border-radius: .6rem;
+    background-color: #333;
+    text-align: center;
+    box-shadow: 1px 1px 1px 1px #ccc;
+    color: #fff;
+    font-size: 4vw;
+}
+.email_certified_box > label {
+    margin-left: 4%;
+    color: #f55;
+}
+
 /* Intro */
 .intro {
     filter: invert(100%);
