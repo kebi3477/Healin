@@ -1,9 +1,9 @@
 @keyframes loading {
     0% {   
-        transform: rotateZ(0); 
+        transform: translateY(-1rem) rotateZ(0); 
     }
     100% {
-        transform: rotateZ(360deg);
+        transform: translateY(-1rem) rotateZ(360deg);
     }
 }
 body {
@@ -112,7 +112,7 @@ body {
     position: relative;
 }
 .email_certified {
-    width: 14%;
+    min-width: 14%;
     position: absolute;
     top: 0;
     right: -1px;
@@ -124,6 +124,10 @@ body {
     box-shadow: 1px 1px 1px 1px #ccc;
     color: #fff;
     font-size: 4vw;
+}
+.input > .email_enabled > input{
+    pointer-events: none;
+    background-color: #b3b3b3;
 }
 .email_certified_box {
     position: relative;
@@ -148,6 +152,16 @@ body {
 .email_certified_box > label {
     margin-left: 4%;
     color: #f55;
+}
+.email_loading_circle {
+    width: .5rem;
+    height: .5rem;
+    border: 2vw solid #333;
+    border-bottom: 2vw solid transparent;
+    top: 100%;
+    left: 100%;
+    margin-left: .5rem;
+    position: absolute;
 }
 
 /* Intro */

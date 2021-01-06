@@ -22,7 +22,10 @@ class login extends Component {
             loading : false,
             onSignUp : false,
             certifing : false,
-            certifiNumber : ''
+            certifiNumber : '',
+            emailSending : false,
+            emailEnabled : false,
+            timer : '3:01'
         } 
         //todo : made email certifiedNUmber
     }
@@ -207,7 +210,10 @@ class login extends Component {
             const user = {
                 email: this.state.email
             }
-            
+            this.setState({
+                emailSending : true,
+                emailEnabled : true
+            })
             fetch('/user/emailCertified', {
                 method: 'POST',
                 dataType: "JSON",
@@ -218,9 +224,11 @@ class login extends Component {
             })
             .then(data => data.json())
             .then(json => {
+                this.timer();
                 this.setState({
                     emailLabel : '이메일을 확인해주세요!',
-                    certifing : true
+                    certifing : true,
+                    emailSending : false
                 })
                 console.log(json.info);
             })
@@ -248,8 +256,30 @@ class login extends Component {
             } else {
                 alert("인증 실패")
             }
-        })
-        
+        })   
+    }
+
+    timer = () => {
+        let time = 180;
+        let min = "";
+        let sec = "";
+
+        var timeInterval = setInterval(() => {
+            min = parseInt(time/60);
+            sec = time % 60;
+            sec = sec < 10 ? `0${sec}` : sec
+            this.setState({
+                timer : `${min}:${sec}`
+            })
+            time--;
+            if(time < 0) {
+                clearInterval(timeInterval);
+                fetch('/user/certifiedNumberDelete')
+            }
+        }, 1000);
+        var removeTimer = () => {
+            clearInterval(timeInterval);
+        }
     }
 
     handleChange = e => { //input에 data가 변경될 때마다 this.state에 값을 넣어줌
@@ -325,15 +355,16 @@ class login extends Component {
                             <label className={`input_label ${this.state.pwCheck ? 'green' : 'red'}`}>{this.state.pwLabel}</label>
                             <input type='password' placeholder='비밀번호 재확인' onChange={this.handleChange} name='rePw' onBlur={this.pwSameCheck}></input>
                             <label className={`input_label ${this.state.rePwCheck ? 'green' : 'red'}`}>{this.state.rePwLabel}</label>
-                            <div className='email_box'>
+                            <div className={`email_box ${this.state.emailEnabled ? 'email_enabled' : ''}`}>
                                 <input type='text' placeholder='이메일' onChange={this.handleChange} onBlur={this.emailCheck} name='email'></input>
-                                <div className='email_certified' onClick={this.emailCertified}>전송</div>
+                                <div className='email_certified' onClick={this.emailCertified}>{this.state.emailEnabled ? '재전송' : '전송'}</div>
+                                { this.state.emailSending ? <div className="email_loading_circle circle"></div> : "" }
                             </div>
                             <label className={`input_label ${this.state.emailCheck ? 'green' : 'red'}`}>{this.state.emailLabel}</label>
                             { this.state.certifing ? <div className="email_certified_box">
                                 <input type="text" placeholder='인증번호' className='email_certified_number' onChange={this.handleChange} name='certifiNumber'></input>
                                 <div className="email_certified_btn" onClick={this.emailCertifiedCheck}>확인</div>
-                                <label>3:00</label>
+                                <label>{this.state.timer}</label>
                             </div> : "" }
                         </div>
                         <div className='user_btn' onClick={this.signUp}>회원가입</div>
