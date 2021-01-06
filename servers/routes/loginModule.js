@@ -140,4 +140,8 @@ router.post('/emailCertifiedCheck', (req, res) => {
     res.json(result);
 })
 
+router.get('/certifiedNumberDelete', (req, res) => {
+    publicCertifiedNumber = 0;
+})
+
 module.exports = router;
