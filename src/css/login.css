@@ -129,6 +129,9 @@ body {
     pointer-events: none;
     background-color: #b3b3b3;
 }
+.email_box > .enabled {
+    pointer-events: none;
+}
 .email_certified_box {
     position: relative;
 }

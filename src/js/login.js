@@ -25,9 +25,10 @@ class login extends Component {
             certifiNumber : '',
             emailSending : false,
             emailEnabled : false,
+            emailCertified : false,
+            time : 180,
             timer : '3:01'
-        } 
-        //todo : made email certifiedNUmber
+        }
     }
 
     signIn = () => {    //로그인
@@ -70,7 +71,8 @@ class login extends Component {
             idCheck : this.state.idCheck,
             pwCheck : this.state.pwCheck,
             rePwCheck : this.state.rePwCheck,
-            emailCheck : this.state.emailCheck
+            emailCheck : this.state.emailCheck,
+            emailCertified : this.state.emailCertified
         }
         this.imLoading();
         if(user.id === '' || user.pw === '' || user.rePw === '' || user.email === '') {
@@ -78,6 +80,9 @@ class login extends Component {
             setTimeout(this.imLoading, 100);
         } else if(!user.idCheck || !user.pwCheck || !user.rePwCheck || !user.emailCheck) {
             alert("잘못된 정보가 없는지 다시 한번 확인해보세요!");
+            setTimeout(this.imLoading, 100);
+        } else if(!user.emailCertified){
+            alert("이메일 인증을 완료해주세요!");
             setTimeout(this.imLoading, 100);
         } else {
             fetch('/user/signUp', {
@@ -210,6 +215,13 @@ class login extends Component {
             const user = {
                 email: this.state.email
             }
+            if(!this.state.emailEnabled) {
+                this.timer();
+            } else {
+                this.setState({
+                    time : 180
+                })    
+            }
             this.setState({
                 emailSending : true,
                 emailEnabled : true
@@ -224,9 +236,8 @@ class login extends Component {
             })
             .then(data => data.json())
             .then(json => {
-                this.timer();
                 this.setState({
-                    emailLabel : '이메일을 확인해주세요!',
+                    emailLabel : '메일을 확인해주세요!',
                     certifing : true,
                     emailSending : false
                 })
@@ -252,7 +263,10 @@ class login extends Component {
         .then(data => data.json())
         .then(json => {
             if(json.check) {
-                alert("인증 성공");
+                this.setState({
+                    emailLabel : '이메일 인증에 성공하셨습니다.',
+                    emailCertified : true
+                })
             } else {
                 alert("인증 실패")
             }
@@ -260,26 +274,21 @@ class login extends Component {
     }
 
     timer = () => {
-        let time = 180;
         let min = "";
         let sec = "";
-
-        var timeInterval = setInterval(() => {
-            min = parseInt(time/60);
-            sec = time % 60;
+        const timerInterval = setInterval(() => {
+            min = parseInt(this.state.time/60);
+            sec = this.state.time % 60;
             sec = sec < 10 ? `0${sec}` : sec
             this.setState({
+                time : this.state.time-1,
                 timer : `${min}:${sec}`
             })
-            time--;
-            if(time < 0) {
-                clearInterval(timeInterval);
+            if(this.state.time < 0) {
+                clearInterval(timerInterval);
                 fetch('/user/certifiedNumberDelete')
             }
         }, 1000);
-        var removeTimer = () => {
-            clearInterval(timeInterval);
-        }
     }
 
     handleChange = e => { //input에 data가 변경될 때마다 this.state에 값을 넣어줌
@@ -357,11 +366,11 @@ class login extends Component {
                             <label className={`input_label ${this.state.rePwCheck ? 'green' : 'red'}`}>{this.state.rePwLabel}</label>
                             <div className={`email_box ${this.state.emailEnabled ? 'email_enabled' : ''}`}>
                                 <input type='text' placeholder='이메일' onChange={this.handleChange} onBlur={this.emailCheck} name='email'></input>
-                                <div className='email_certified' onClick={this.emailCertified}>{this.state.emailEnabled ? '재전송' : '전송'}</div>
+                                {!this.state.emailCertified ? <div className={`email_certified ${this.state.emailSending ? 'enabled' : ''}`} onClick={this.emailCertified}>{this.state.emailEnabled ? '재전송' : '전송'}</div> : ""}
                                 { this.state.emailSending ? <div className="email_loading_circle circle"></div> : "" }
                             </div>
                             <label className={`input_label ${this.state.emailCheck ? 'green' : 'red'}`}>{this.state.emailLabel}</label>
-                            { this.state.certifing ? <div className="email_certified_box">
+                            { this.state.certifing && !this.state.emailCertified ? <div className="email_certified_box">
                                 <input type="text" placeholder='인증번호' className='email_certified_number' onChange={this.handleChange} name='certifiNumber'></input>
                                 <div className="email_certified_btn" onClick={this.emailCertifiedCheck}>확인</div>
                                 <label>{this.state.timer}</label>
