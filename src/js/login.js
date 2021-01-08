@@ -314,7 +314,10 @@ class login extends Component {
             rePwCheck : false,
             emailCheck : false,
             onSignUp : this.state.onSignUp ? false : true,
-            certifing : false
+            emailEnabled : false,
+            certifing : false,
+            emailCertified : false
+            
         })
     }
 
