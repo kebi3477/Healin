@@ -1,0 +1,111 @@
+.header__box {
+    width: 100vw;
+    height: 25vh;
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    background-color: #333;   
+    box-shadow: 0 3px 4px 1px #333a;
+    z-index: 5;
+}
+.header__box > div {
+    flex: 1;
+    text-align: center;
+}
+.header__box div {
+    color: #fff;
+}
+.header__title {
+    font-size: .9rem;
+}
+.header__text {
+    font-size: .9rem;
+    margin-top: .5vh;
+}
+.header__name {
+    margin-top: 1vw;
+    font-size: 4vw;
+}
+.header__image, .rank__profile--image {
+    width: 5rem;
+    height: 5rem;
+    background-image: url(../image/profile_image.png);
+    background-size: cover;
+    margin: 0 auto;
+    border: 1px solid #fff;
+}
+.header__strength {
+    width: 2rem;
+    height: 2rem;
+    background-image: url(../image/point.svg);
+    background-color: #fff;
+    background-size: 70%;
+    margin: 0 auto;
+}
+.header__image, .header__strength, .rank__profile--image, .rank__strength {
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+}
+.rank__list {
+    width: 100vw;
+    height: 67vh;
+    padding-bottom: 8vh;
+    overflow: scroll;
+}
+.rank__item {
+    width: 80%;
+    height: max-content;
+    margin: 5%;
+    padding: 5% 5%;
+    background-color: #ccc;
+    border-radius: .25rem;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+.rank__myrank {
+    flex: .6;
+    text-align: left;
+}
+.rank__profile {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    flex: 4;
+    margin-left: 4vw;
+}
+.rank__profile--image {
+    width: 3.5rem;
+    height: 3.5rem;
+}
+.rank__info {
+    flex: 2;
+    margin-left: 1.5vw;
+}
+.rank__name {
+    font-size: .9rem;
+    font-weight: bold;
+}
+.rank__email {
+    font-size: .5rem;
+}
+.rank__mypoint {
+    display: flex;
+    flex-flow: row nowrap;
+    flex: 1;
+}
+.rank__strength {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: #fff;
+    border-radius: 50%;
+    background-image: url('../image/point.svg');
+    background-size: 70%;
+    filter: invert(100%);
+}
+.rank__point {
+    font-weight: bold;
+    margin-left: 1.5vw;
+}

@@ -11,7 +11,7 @@ function Menu(props) {
         } else if(props.type === 'chat') {
             inner = 'chatting';
         } else if(props.type === 'rank') {
-            inner = 'rankking';
+            inner = 'rank';
         } else {
             inner = 'mypage';
         }
@@ -22,7 +22,7 @@ function Menu(props) {
         activeFlag = true;
     } else if(window.location.pathname === '/chatting' && props.type === 'chat') {
         activeFlag = true;
-    } else if(window.location.pathname === '/rankking' && props.type === 'rank') {
+    } else if(window.location.pathname === '/rank' && props.type === 'rank') {
         activeFlag = true;
     } else if(window.location.pathname === '/mypage' && props.type === 'profile') {
         activeFlag = true;
