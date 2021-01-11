@@ -1,0 +1,231 @@
+@font-face {
+  font-family: "SCore";
+  src: url("../font/SCDream3.otf");
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+.profile__container * {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  font-family: "SCore";
+}
+.profile__container {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+}
+
+.profile__container::before {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: -2;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+}
+
+.profile__container::after {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+  content: "";
+  width: 100%;
+  height: 37vh;
+  background-color: #000000;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.profile__user {
+  padding: 0px 20px;
+  padding-top: 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.profile__user--account {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile__user--account-avatar {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 70%;
+  border: 2px solid #ffffff;
+}
+
+.profile__user--account-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile__user--account-name {
+  margin-top: 1vw;
+  font-size: 4vw;
+  color: #fff;
+}
+
+.profile__user--account-email {
+  font-size: 1vw;
+  color: #cacaca;
+}
+
+.profile__user--account-rank {
+  margin-top: 1vw;
+  padding: 0.5vw 3vw;
+  border-radius: 10px;
+  font-size: 1vw;
+  color: #fff;
+}
+
+.bronze {
+  background: linear-gradient(to right, #c6630a, #964400);
+}
+.silver {
+  background: linear-gradient(to right, #c6c6c6, #828282);
+}
+.gold {
+  background: linear-gradient(to right, #f4df60, #c6b30a);
+}
+.platinum {
+  background: linear-gradient(to right, #49ea8b, #23b55e);
+}
+.diamond {
+  background: linear-gradient(to right, #47c0ea, #199aaf);
+}
+.master {
+  background: linear-gradient(to right, #ea4747, #af1919);
+}
+
+.profile__user--info {
+  margin-top: 14px;
+  padding: 5% 10%;
+  position: relative;
+  width: calc(100% - 40px);
+  background-color: #f8f8f8;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  box-shadow: 0px 1px 2px rgba(200, 200, 200, 0.7);
+}
+
+.profile__user--info-box {
+  text-align: center;
+}
+
+.profile__user--info .profile__user--info-box:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.profile__user--info-text {
+  font-size: 5vw;
+  font-weight: bold;
+}
+
+.profile__user--info-name {
+  font-size: 1VW;
+}
+
+.profile__deck {
+  margin-top: 3vw;
+  width: calc(100% - 40px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.profile__deck .title {
+  margin-left: 10px;
+  font-size: 5vw;
+  font-weight: bold;
+}
+
+.profile__deck--container {
+  padding-bottom: 3%;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.profile__deck--container-box {
+  width: max-content;
+  height: 100%;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.profile__deck--container-box > .profile__deck--container-box-card {
+  width: 30vw;
+  height: 25vh;
+  flex: 1;
+  background-color: #aaa;
+  margin-left: 5vw;
+  margin-top: 10px;
+  padding: 3%;
+  border-radius: 1rem;
+}
+
+.profile__deck--container-box-card:first-child {
+  margin-left: 0;
+}
+
+.profile__setting {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.profile__setting--icon {
+  width: 20px;
+  height: 20px;
+}
+
+.profile__setting--icon .path {
+  fill: #ffffff;
+}
+
+.profile__setting--icon:hover .out__gear {
+  transform-origin: center;
+  animation: rotate__gear 1s ease-in-out;
+}
+
+@keyframes rotate__gear {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

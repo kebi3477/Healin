@@ -1,7 +1,7 @@
 module.exports = {
     host : 'localhost',
     user : 'root',
-    password : 'wnddkd1204',
-    database : 'my_db',
+    password : 'gpffls0203',
+    database : 'healindb',
     insecureAuth: true
 }
