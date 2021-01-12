@@ -17,7 +17,7 @@ class App extends React.Component {
     return (
       <Router>
         <Route exact path="/" component={Login}/>
-        <Route exact path="/main" component={Main}/>
+        <Route path="/main" component={Main}/>
         <Route exact path="/chatting" component={Chatting}/>
         <Route exact path="/rank" component={Rank}/>
         <Route exact path="/mypage" component={Profile}/>

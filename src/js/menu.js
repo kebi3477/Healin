@@ -1,38 +1,49 @@
 import React from 'react';
+import '../css/menu.css';
+import { ReactComponent as HealthIcon } from '../image/health.svg';
+import { ReactComponent as ChatIcon } from '../image/chat.svg';
+import { ReactComponent as RankIcon } from '../image/rank.svg';
+import { ReactComponent as ProfileIcon } from '../image/profile.svg';
 
-function Menu(props) {
-    const domClassName = `menu-${props.type}`
-    let activeFlag = false;
-    
-    const changeLocation = () => {
-        let inner;
-        if(props.type === 'health') {
-            inner = 'main';
-        } else if(props.type === 'chat') {
-            inner = 'chatting';
-        } else if(props.type === 'rank') {
-            inner = 'rank';
-        } else {
-            inner = 'mypage';
+class Menu extends React.Component {
+
+    render() {
+        let activeFlag = 1;
+        const pathName = window.location.pathname;
+
+        const changeLocation = path => {
+            window.location = `../${path}`;
         }
-        window.location = `../${inner}`;
-    }
-    
-    if(window.location.pathname === '/main' && props.type === 'health') {
-        activeFlag = true;
-    } else if(window.location.pathname === '/chatting' && props.type === 'chat') {
-        activeFlag = true;
-    } else if(window.location.pathname === '/rank' && props.type === 'rank') {
-        activeFlag = true;
-    } else if(window.location.pathname === '/mypage' && props.type === 'profile') {
-        activeFlag = true;
+        
+        if(pathName === '/chatting') {
+            activeFlag = 2;
+        } else if(pathName === '/rank') {
+            activeFlag = 3;
+        } else if(pathName === '/mypage') {
+            activeFlag = 4;
+        } else {
+            activeFlag = 1;
+        }
+
+        
+        return (
+            <div className='menu'>
+                <div onClick={() => changeLocation('main')} className={activeFlag === 1 ? 'menu-active' : ''}>
+                    <HealthIcon />
+                </div>
+                <div onClick={() => changeLocation('chatting')} className={activeFlag === 2 ? 'menu-active' : ''}>
+                    <ChatIcon />
+                </div>
+                <div onClick={() => changeLocation('rank')} className={activeFlag === 3 ? 'menu-active' : ''}>
+                    <RankIcon />
+                </div>
+                <div onClick={() => changeLocation('mypage')} className={activeFlag === 4 ? 'menu-active' : ''}>
+                    <ProfileIcon />
+                </div>
+            </div>
+        )
     }
 
-    return (
-        <div onClick={changeLocation} className={activeFlag ? 'menu-active' : ''}>
-            <div className={domClassName}></div>
-        </div>
-    );
 }
 
-export default Menu
+export default Menu;

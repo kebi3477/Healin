@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MenuBar from './menuBar';
+import Menu from './menu';
 import '../css/profile.css';
 
 class Profile extends Component {
@@ -51,7 +51,7 @@ class Profile extends Component {
                   </div>
                 </div>
               </div>
-            <MenuBar></MenuBar>
+            <Menu></Menu>
             </div>
         )
     }
