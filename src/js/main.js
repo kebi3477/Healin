@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MenuBar from './menuBar';
+import Menu from './menu';
 import '../css/main.css';
 
 class Main extends Component {
@@ -81,13 +81,13 @@ class Main extends Component {
             // </div>
             <div>
                 <div className="main__container">
-                    <div className="main__header" onClick={() => changeUrl('Rank')}>
+                    <div className="main__header" onClick={() => changeUrl('rank')}>
                         <div className="main__header--text">
                             <h1 className="main__header--text-greeting">안녕하세요, <strong>{this.state.nickName}</strong>님</h1>
                             <h1 className="main__header--text-rank">나의 현재 등급 '<strong>브론즈</strong>' 입니다.</h1>
                         </div>
                         <div className="main__header--picture">
-                            <image className="main__header--picture-img" src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="picture" />
+                            <img className="main__header--picture-img" src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="my profile img" />
                         </div>
                     </div>
 
@@ -95,7 +95,7 @@ class Main extends Component {
                         <div className="main__contents--recomm">
                             <h1 className="main__contents--recomm-text">추천 프로그램</h1>
                             <div className="main__contents--recomm-routine">
-                                <image className="main__contents--recomm-routine-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFeqFhshZ-zRrt6bIrYehbUGKEQBexCAWeDg&usqp=CAU" alt="picture" />
+                                <img className="main__contents--recomm-routine-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFeqFhshZ-zRrt6bIrYehbUGKEQBexCAWeDg&usqp=CAU" alt="main page routin" />
                                 <div className="main__contents--recomm-routine-info">
                                     <div className="main__contents--recomm-routine-info-ments">
                                         <h1>풀업(Pull-up)</h1>
@@ -123,7 +123,7 @@ class Main extends Component {
                         </div>
                     </div>
                 </div>
-                <MenuBar></MenuBar>
+                <Menu></Menu>
             </div>
         )
     }

@@ -17,9 +17,8 @@
 .menu > .menu-active {
     background-color: #333;
 }
-.menu > .menu-active > div {
+.menu > .menu-active > svg {
     filter: invert(100);
-    /* background-color: #ddd; */
 }
 .menu > div > div {
     flex: 1;
@@ -30,15 +29,7 @@
     background-position: center center;
     pointer-events: none;
 }
-.menu-health {
-    background: url('../image/health.svg');
-}
-.menu-chat {
-    background: url('../image/chat.svg');
-}
-.menu-rank {
-    background: url('../image/rank.svg');
-}
-.menu-profile {
-    background: url('../image/profile.svg');
+.menu > div > svg {
+    width: 40%;
+    margin: 0 auto;
 }

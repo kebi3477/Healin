@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MenuBar from './menuBar';
+import Menu from './menu';
 import '../css/rank.css';
 
 class Rank extends Component {
@@ -86,7 +86,7 @@ class Rank extends Component {
                 <div className="rank__list">
                     {rankListItem}
                 </div>
-                <MenuBar></MenuBar>
+                <Menu></Menu>
             </div>
         )
     }
