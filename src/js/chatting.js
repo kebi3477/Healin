@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MenuBar from './menuBar';
+import Menu from './menu';
 
 class Chat extends Component {
 
@@ -7,7 +7,7 @@ class Chat extends Component {
     render() {
         return(
             <div>
-                <MenuBar></MenuBar>
+                <Menu></Menu>
             </div>
         )
     }
