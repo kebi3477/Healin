@@ -22,9 +22,14 @@ router.post('/check', (req, res) => { //처음 메인 페이지 접속 시 세�
 })
 
 router.post('/logout', (req, res) => { //로그아웃
+    const result = {
+        success : false
+    }
     req.session.destroy(() => {
         req.session;
     })
+    result.success = true;
+    res.json(result);
 })
 
 module.exports = router;

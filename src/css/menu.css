@@ -1,3 +1,17 @@
+@keyframes shake {
+    0% {
+        transform : rotateZ(0deg);
+    }
+    25% {
+        transform : rotateZ(30deg);
+    }
+    75% {
+        transform : rotateZ(-30deg);
+    }
+    100% {
+        transform : rotateZ(0deg);
+    }
+}
 
 .menu {
     width: 100%;
@@ -53,4 +67,9 @@
 }
 .menu > .menu-active .profile--mouse {
     stroke: #fff;
+}
+
+.menu-active .trophy {
+    animation: shake .8s ease-in-out;
+    animation-iteration-count: 2;
 }

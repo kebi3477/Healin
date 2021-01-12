@@ -1,7 +1,6 @@
 body {
     font-family: 'SCore';
 }
-
 strong{
     color: #fff;
 }
@@ -14,7 +13,7 @@ p,a,h1, h2, h3, h4, h5, h6{
     box-sizing: border-box;
     width: 100%;
     padding: 4%;
-    padding-bottom: 0;
+    padding-bottom: 10vh;
 }
 
 .main__header{
@@ -153,12 +152,60 @@ p,a,h1, h2, h3, h4, h5, h6{
     justify-content: space-between;
 }
 
-.main__contents--part-items .box{
+.main__contents--part-items-item{
     box-sizing: border-box;
     margin-top: 2vh;
     padding: 4%;
     width: 48%;
     height: 22vh;
     background-color: #000;
+    overflow: hidden;
     border-radius: 2vh;
+    position: relative;
+}
+
+.main__contents--part-items-img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.main__contents--part-items-info{
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 8%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(33,33,33,0.25);
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.main__contents--part-items-info-ments h1{
+    color: #fff;
+    font-size: 4vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 35vw;
+}
+
+.main__contents--part-items-info-pointBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main__contents--part-items-info-point{
+    margin-left: 1vw;
+    color: #fff;
+    font-size: 1vw;
+    font-weight: bold;
 }
