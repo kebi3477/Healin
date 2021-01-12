@@ -6,7 +6,8 @@
     flex-flow: row nowrap;
     position: fixed;
     bottom: 0;
-    background-color: #ddd;
+    background-color: #fff;
+    box-shadow: 0 -2px 3px 0px #3333;
 }
 .menu > div {
     display: flex;
@@ -14,12 +15,10 @@
     text-align: center;
     align-items: center;
 }
-.menu > .menu-active {
-    background-color: #333;
-}
-.menu > .menu-active > svg {
+
+/* .menu > .menu-active > svg {
     filter: invert(100);
-}
+} */
 .menu > div > div {
     flex: 1;
     height: 55%;
@@ -30,6 +29,28 @@
     pointer-events: none;
 }
 .menu > div > svg {
-    width: 40%;
+    height: 70%;
     margin: 0 auto;
+}
+.menu > .menu-active .trophy--yellow {
+    fill : #ffd732;
+}
+.menu > .menu-active .chat--board{
+    fill:#cc4a4a;
+    stroke: none;
+}
+.menu > .menu-active .chat--cloud{
+    fill:#000;
+}
+.menu > .menu-active .chat--white-line {
+    stroke: #fff;
+}
+.menu > .menu-active .profile--head, .menu > .menu-active .profile--body {
+    fill : #000;
+}
+.menu > .menu-active .profile--eye {
+    fill: #fff;
+}
+.menu > .menu-active .profile--mouse {
+    stroke: #fff;
 }
