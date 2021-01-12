@@ -47,7 +47,7 @@ class Rank extends Component {
             return a.point > b.point ? -1 : a.point < b.point ? 1 : 0;
         })
 
-        const rankListItem = rankListCopoy.map((el, index) => {
+        const rankListItem = rankListCopoy.map((data, index) => {
             const rankWordArr = ['st', 'nd', 'rd', 'th'];
             return (
                 <div className="rank__item">
@@ -55,13 +55,13 @@ class Rank extends Component {
                     <div className="rank__profile">
                         <div className="rank__profile--image"></div>
                         <div className="rank__info">
-                            <div className="rank__name">{el.name}</div>
-                            <div className="rank__email">{el.email}</div>
+                            <div className="rank__name">{data.name}</div>
+                            <div className="rank__email">{data.email}</div>
                         </div>
                     </div>
                     <div className="rank__mypoint">
                         <div className="rank__strength"></div>
-                        <div className="rank__point">{el.point}</div>
+                        <div className="rank__point">{data.point}</div>
                     </div>
                 </div>)
             }

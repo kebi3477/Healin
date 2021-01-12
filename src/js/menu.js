@@ -1,4 +1,6 @@
 import React from 'react';
+import '../css/menu.css';
+import { ReactComponent as MySvg } from '../image/health.svg';
 
 function Menu(props) {
     const domClassName = `menu-${props.type}`
@@ -31,6 +33,7 @@ function Menu(props) {
     return (
         <div onClick={changeLocation} className={activeFlag ? 'menu-active' : ''}>
             <div className={domClassName}></div>
+            <MySvg></MySvg>
         </div>
     );
 }
