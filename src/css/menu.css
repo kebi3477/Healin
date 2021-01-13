@@ -43,7 +43,7 @@
     pointer-events: none;
 }
 .menu > div > svg {
-    height: 70%;
+    height: 55%;
     margin: 0 auto;
 }
 .menu > .menu-active .trophy--yellow {
